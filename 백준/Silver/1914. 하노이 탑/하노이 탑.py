@@ -29,46 +29,43 @@
 #     만약 n == 1 이라면:
 #         출력 "from 원반에서 to 원반으로 디스크 1 이동"
 #         반환
-#     move(n-1, from, aux, to)
+#     hanoi(n-1, from, aux, to)
 #     출력 "from 원반에서 to 원반으로 디스크 n 이동"
-#     move(n-1, aux, to, from)
+#     hanoi(n-1, aux, to, from)
 
 # -----------
-# 2. 재귀 함수 정의
-# n: 옮길 디스크의 수 / from: 시작 원반 / to: 목표 원반 / aux: 보조 원반
-def hanoiExceeds20(n):
+
+def hanoi(n):
     return 2 ** n - 1
 
-def hanoi20orLess(n, start, end, sub, printMode = False):
+# 2. 재귀 함수 정의
+# n: 옮길 디스크의 수 / from: 시작 원반 / to: 목표 원반 / aux: 보조 원반
+def hanoiPrintProcess(n, start, end, sub):
     totalCount = 0
 
     # 3. 기본 사례 처리
     if n <= 1:
         totalCount += 1
-
-        if printMode:
-            print(start, end)
+        print(start, end)
 
         return totalCount
 
     # 4. 재귀적 접근, 5. 재귀 호출
-    totalCount += hanoi20orLess(n - 1, start, sub, end, printMode)
+    totalCount += hanoiPrintProcess(n - 1, start, sub, end)
 
     # 6. 출력
-    if printMode:
-        print(start, end)
+    print(start, end)
 
     totalCount += 1
 
-    totalCount += hanoi20orLess(n - 1, sub, end, start, printMode)
+    totalCount += hanoiPrintProcess(n - 1, sub, end, start)
 
     return totalCount
 
 # 1. 문제 정의
 N = int(input())
 
-if N > 20:
-    print(hanoiExceeds20(N))
-else:
-    print(hanoi20orLess(N, 1, 3, 2))
-    hanoi20orLess(N, 1, 3, 2, True)
+print(hanoi(N))
+
+if N <= 20:
+    hanoiPrintProcess(N, 1, 3, 2)
