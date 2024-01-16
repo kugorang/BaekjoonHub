@@ -29,12 +29,8 @@ n_cordinates.sort()
 for index in range(M):
     n_cordinates_len = len(n_cordinates)
     n_middle_index = int(len(n_cordinates) * 0.5)
-    # print("----------")
-    # print(f"Debug - n_cordinates: {n_cordinates}")
-    # print(f"Debug - n_middle_index: {n_middle_index}")
 
     current_m_x = m_x_cordinates[index]
-    # print(f"Debug - current_m_x: {current_m_x}")
 
     # 현재 사대의 왼쪽 최대치
     current_m_left_max = max(current_m_x - L, 1)
@@ -42,16 +38,10 @@ for index in range(M):
     # 현재 사대의 오른쪽 최대치
     current_m_right_max = current_m_x + L
 
-    # print(f"1: 현재 x - {current_m_x}, 2: x 왼쪽 끝 - {current_m_left_max}, \
-# 3: x 오른쪽 끝 - {current_m_right_max}")
-
     remove_cordinates = []
 
     # 동물 리스트의 절반부터 끝까지 증가
     for index in range(n_middle_index + 1, n_cordinates_len):
-        # print(f"Debug - index (1): {index}")
-        # print(f"Debug - n_cordinates[index] (1): {n_cordinates[index]}")
-
         # 현재 동물의 x 좌표가 사대 위치 사정거리에서 벗어났다면 반복문 벗어남
         # 동물 좌표를 x 좌표 기준으로 정렬했기 때문에 x 좌표 먼저 확인
         if n_cordinates[index][0] > current_m_right_max:
@@ -64,20 +54,15 @@ for index in range(M):
         # 현재 동물 좌표가 사대 위치 사정거리 안에 있는지 확인
         if L >= animalDistanceFromMe:
             # 사정 거리보다 동물과의 거리가 작다면 Catch!
-            # print(f"Catch at First Loop! {n_cordinates[index][0]}, {n_cordinates[index][1]}")
             resultCount += 1
             remove_cordinates.append(n_cordinates[index])
 
     for remove_cordinate in remove_cordinates:
-        # print(f"Debug - remove_cordinate (1): {remove_cordinate}")
         n_cordinates.remove(remove_cordinate)
 
     remove_cordinates.clear()
 
     for index in range(n_middle_index, -1, -1):
-        # print(f"Debug - index (2): {index}")
-        # print(f"Debug - n_cordinates[index] (2): {n_cordinates[index]}")
-
         # 현재 동물의 x 좌표가 사대 위치 사정거리에서 벗어났다면 반복문 벗어남
         # 동물 좌표를 x 좌표 기준으로 정렬했기 때문에 x 좌표 먼저 확인
         if current_m_left_max > n_cordinates[index][0]:
@@ -90,12 +75,10 @@ for index in range(M):
         # 현재 동물 좌표가 사대 위치 사정거리 안에 있는지 확인
         if L >= animalDistanceFromMe:
             # 사정 거리보다 동물과의 거리가 작다면 Catch!
-            # print(f"Catch at Second Loop! {n_cordinates[index][0]}, {n_cordinates[index][1]}")
             resultCount += 1
             remove_cordinates.append(n_cordinates[index])
 
     for remove_cordinate in remove_cordinates:
-        # print(f"Debug - remove_cordinate (2): {remove_cordinate}")
         n_cordinates.remove(remove_cordinate)
 
 print(resultCount)
