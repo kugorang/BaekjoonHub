@@ -4,14 +4,13 @@ from collections import deque
 class Queue:
     def __init__(self):
         self.data = deque()
-        return
     
     def push(self, X):
         self.data.append(X)
         return
     
     def pop(self):
-        if self.empty():
+        if len(self.data) <= 0:
             return -1
 
         return self.data.popleft()
@@ -20,22 +19,24 @@ class Queue:
         return len(self.data)
 
     def empty(self):
-        if self.size() <= 0:
+        if len(self.data) <= 0:
             return 1
 
         return 0
 
     def front(self):
-        if self.empty():
+        if len(self.data) <= 0:
             return -1
 
         return self.data[0]
 
     def back(self):
-        if self.empty():
+        dataSize = len(self.data)
+        
+        if dataSize <= 0:
             return -1
         
-        return self.data[self.size() - 1]
+        return self.data[dataSize - 1]
 
 N = int(sys.stdin.readline())
 
