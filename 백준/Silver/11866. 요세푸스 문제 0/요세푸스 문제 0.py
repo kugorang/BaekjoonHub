@@ -1,4 +1,6 @@
-N, K = map(int, input().split())
+import sys
+
+N, K = map(int, sys.stdin.readline().split())
 
 peopleList = []
 josephusPermutation = []
