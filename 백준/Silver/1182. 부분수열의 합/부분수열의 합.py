@@ -10,15 +10,13 @@ from itertools import combinations
 N, S = map(int, sys.stdin.readline().split())
 numList = list(map(int, sys.stdin.readline().split()))
 combinationList = []
-
-for count in range(1, len(numList) + 1):
-    combinationList.append(combinations(numList, count))
-
 combinationCount = 0
 
-for combination in combinationList:
+for count in range(1, len(numList) + 1):
+    combination = combinations(numList, count)
+    
     for element in combination:
-        if sum(list(element)) == S:
+        if sum(element) == S:
             combinationCount += 1
             
 print(combinationCount)
