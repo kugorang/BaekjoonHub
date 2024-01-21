@@ -36,7 +36,6 @@ class UnionFind:
 def kruskal(graph, V):
     uf = UnionFind(V)  # 유니온-파인드 객체 초기화
     mst_cost = 0  # MST의 총 가중치
-    mst_edges = []  # MST를 구성하는 간선들
 
     # 간선을 가중치 기준으로 오름차순 정렬
     graph.sort(key=lambda x: x[2])
@@ -48,16 +47,15 @@ def kruskal(graph, V):
             uf.union(u, v)
             mst_cost += weight
 
-            # print(f"간선 {u}-{v} (가중치 {weight})을 MST에 추가")
-
     return mst_cost
 
 
-# 그래프 예시: 각 간선은 (u, v, weight) 형태로 표현
+# V: 정점 수, E: 간선 수
 V, E = map(int, sys.stdin.readline().split())
 
 graph = []
 
+# 그래프 예시: 각 간선은 (u, v, weight) 형태로 표현
 for _ in range(E):
     graph.append(list(map(int, sys.stdin.readline().split())))
 
