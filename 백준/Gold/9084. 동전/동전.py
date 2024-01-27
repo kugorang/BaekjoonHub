@@ -15,6 +15,7 @@ for _ in range(T):
     # M: N개의 동전 종류로 만들어야 할 총 금액
     M = int(sys.stdin.readline())
 
+
     # dp 배열: 각 동전과 각 금액에 대한 방법의 수 저장
     # ex) dp[coin][currentPrice] : 금액 'currentPrice'를 만드는 데 필요한 동전 'coin'까지 고려한 방법의 수
     dp = [([0] * (M + 1)) for _ in range(N + 1)]
@@ -33,7 +34,8 @@ for _ in range(T):
                     eachPrice - coinType[coinIndex - 1]
                 ]
 
-    results.append(dp[N][M])
+    # results.append(dp[N][M])
+    print(dp[N][M])
 
-for result in results:
-    print(result)
+# for result in results:
+#     print(result)
