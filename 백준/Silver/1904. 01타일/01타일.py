@@ -2,7 +2,7 @@ import sys
 
 N = int(sys.stdin.readline())
 
-tileCount = [ [] for _ in range(N + 1) ]
+tileCount = [0] * (N + 1)
 
 tileCount[0] = 1
 tileCount[1] = 1
