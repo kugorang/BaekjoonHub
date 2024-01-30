@@ -16,10 +16,10 @@ for _ in range(T):
     # 채용할 수 있는 최대 인원 수
     maxHire = 1  # 서류 심사 1위는 무조건 선발
     bestInterviewRank = appliers[0][1]  # 서류 심사 1위의 면접 순위
-
+        
     for i in range(1, applyPeopleNum):
-        if appliers[i][1] < bestInterviewRank:
+        if bestInterviewRank > appliers[i][1]:
             maxHire += 1
             bestInterviewRank = appliers[i][1]
-
+    
     print(maxHire)
