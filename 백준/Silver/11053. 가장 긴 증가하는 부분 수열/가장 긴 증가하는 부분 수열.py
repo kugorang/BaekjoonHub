@@ -1,9 +1,9 @@
 import sys
 
 A = int(sys.stdin.readline())
+LIS = [ 1 ] * A
 
 sequence = list(map(int, sys.stdin.readline().split()))
-LIS = [ 1 ] * A
 
 for srcIndex in range(A):
     for destIndex in range(srcIndex):
