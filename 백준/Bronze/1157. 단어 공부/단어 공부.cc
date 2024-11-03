@@ -6,17 +6,19 @@ using namespace std;
 
 int main()
 {
-    ios::sync_with_stdio(false); // 입출력 성능 최적화
+    ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     string str;
+	str.reserve(1000000);
+
     cin >> str;
 
     for (auto& c : str)
         c = toupper(c);
 
-    char answer = '?';
-    int maxValue = 0;
+    char answer{};
+    int maxValue{};
 
     unordered_map<char, int> alphabetMap;
     auto endIt = alphabetMap.end();
@@ -33,7 +35,7 @@ int main()
         else
             ++(it->second);
 
-        int count = alphabetMap[currentCh];
+        int count = alphabetMap.at(currentCh);
 
         if (count > maxValue)
         {
