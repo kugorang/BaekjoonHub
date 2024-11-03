@@ -1,26 +1,39 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
-#include <cctype>
 
 using namespace std;
 
 int main()
 {
-    string str;
+    ios::sync_with_stdio(false); // 입출력 성능 최적화
+    cin.tie(nullptr);
 
+    string str;
     cin >> str;
-    transform(str.begin(), str.end(), str.begin(), [](unsigned char c){ return toupper(c); });
+
+    for (auto& c : str)
+        c = toupper(c);
 
     char answer = '?';
     int maxValue = 0;
 
     unordered_map<char, int> alphabetMap;
+    auto endIt = alphabetMap.end();
 
     for (auto currentCh : str)
     {
-        int count = ++alphabetMap[currentCh];
+        auto it = alphabetMap.find(currentCh);
+
+        if (it == endIt)
+        {
+            alphabetMap.insert({ currentCh, 1 });
+			endIt = alphabetMap.end();
+        }
+        else
+            ++(it->second);
+
+        int count = alphabetMap[currentCh];
 
         if (count > maxValue)
         {
