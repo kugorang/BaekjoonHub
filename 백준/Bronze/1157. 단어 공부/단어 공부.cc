@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <cctype>
 
@@ -8,40 +8,27 @@ using namespace std;
 
 int main()
 {
-    map<char, int> alphabetMap;
     string str;
 
     cin >> str;
     transform(str.begin(), str.end(), str.begin(), [](unsigned char c){ return toupper(c); });
 
-    size_t strSize = str.size();
-
-	for (size_t i = 0; i < strSize; ++i)
-	{
-        char currentCh = str.at(i);
-        auto iter = alphabetMap.find(currentCh);
-
-        if (iter != alphabetMap.end())
-            ++(iter->second);
-        else
-            alphabetMap.emplace(currentCh, 1);
-	}
-
     char answer = '?';
-    int maxValue = -1;
+    int maxValue = 0;
 
-    for (const auto& pair : alphabetMap)
+    unordered_map<char, int> alphabetMap;
+
+    for (auto currentCh : str)
     {
-        if (pair.second > maxValue)
+        int count = ++alphabetMap[currentCh];
+
+        if (count > maxValue)
         {
-            maxValue = pair.second;
-            answer = pair.first;
-		}
-        else if (pair.second == maxValue)
-        {
-            maxValue = pair.second;
-            answer = '?';
+            maxValue = count;
+            answer = currentCh;
         }
+        else if (count == maxValue)
+            answer = '?';
     }
 
     cout << answer;
