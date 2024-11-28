@@ -4,11 +4,9 @@
 using namespace std;
 
 int solution(int n) {
-    int answer = 0;
+    int answer = n * 0.5f;
     
-    for (int i = 1; i <= n; i++)
-        if (i % 2 == 0)
-            answer += i;
+    answer *= (answer + 1);
     
     return answer;
 }
