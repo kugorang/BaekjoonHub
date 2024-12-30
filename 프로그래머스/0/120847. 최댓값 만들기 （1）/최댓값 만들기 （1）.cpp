@@ -3,20 +3,34 @@
 
 using namespace std;
 
-int solution(vector<int> numbers) {
-    int answer = 0;
-    int lastNumbersIndex = numbers.size() - 1;
+int solution(vector<int> numbers)
+{
+    int numbersSize = numbers.size();
+    int firstMax, secondMax;
     
-    for (int i = 0; i < lastNumbersIndex; ++i)
+    if (numbers[0] >= numbers[1])
     {
-        for (int j = i + 1; j <= lastNumbersIndex; ++j)
+        firstMax = numbers[0];
+        secondMax = numbers[1];
+    }
+    else
+    {
+        firstMax = numbers[1];
+        secondMax = numbers[0];
+    }
+    
+    for (int i = 2; i < numbersSize; ++i)
+    {
+        int currentNum = numbers[i];
+        
+        if (currentNum > firstMax)
         {
-            int multiply = numbers[i] * numbers[j];
-
-            if (multiply > answer)
-                answer = multiply;
+            secondMax = firstMax;
+            firstMax = currentNum;
         }
+        else if (currentNum > secondMax)
+            secondMax = currentNum;   
     }
 
-    return answer;
+    return firstMax * secondMax;
 }
