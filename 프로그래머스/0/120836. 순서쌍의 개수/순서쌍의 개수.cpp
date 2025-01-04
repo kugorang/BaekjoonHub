@@ -12,7 +12,7 @@ int solution(int n) {
         if (n % i == 0)
             ++answer;
     
-    answer *= 2;
+    answer = answer << 1;
     
     if (loopEnd * loopEnd == n)
         --answer;
