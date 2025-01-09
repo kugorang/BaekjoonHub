@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    char arr[5][16] = { '\0', };
+    char arr[5][15] = { '\0', };
     
     for (int row = 0; row < 5; ++row)
     {
