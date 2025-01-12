@@ -8,8 +8,7 @@ string solution(string my_string, int n) {
     answer.reserve(my_string.length() * n);
     
     for (auto my_ch : my_string)
-        for (int i = 0; i < n; ++i)
-            answer.push_back(my_ch);
+        answer.append(string(n, my_ch));
     
     return answer;
 }
