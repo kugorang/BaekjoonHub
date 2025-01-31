@@ -8,12 +8,8 @@ vector<int> solution(int n, vector<int> numlist) {
     answer.reserve(numlist.size());
     
     for (auto num : numlist)
-    {
-        if (num % n != 0)
-            continue;
-        
-        answer.push_back(num);
-    }
+        if (num % n == 0)
+            answer.push_back(num);
 
     return answer;
 }
