@@ -3,12 +3,9 @@
 
 using namespace std;
 
-vector<int> solution(vector<int> numbers) {
-    vector<int> answer;
-    answer.reserve(numbers.size());
+vector<int> solution(vector<int> numbers) {    
+    for (auto &num : numbers)
+        num = num << 1;
     
-    for (auto num : numbers)
-        answer.push_back(num << 1);
-    
-    return answer;
+    return numbers;
 }
