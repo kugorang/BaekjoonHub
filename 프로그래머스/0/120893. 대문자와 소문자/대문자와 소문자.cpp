@@ -4,15 +4,13 @@
 using namespace std;
 
 string solution(string my_string) {
-    string answer = "";
-    
-    for (auto ch : my_string)
+    for (auto &ch : my_string)
     {
         if (isupper(ch))
-            answer.push_back(tolower(ch));
+            ch = tolower(ch);
         else
-            answer.push_back(toupper(ch));
+            ch = toupper(ch);
     }
 
-    return answer;
+    return my_string;
 }
