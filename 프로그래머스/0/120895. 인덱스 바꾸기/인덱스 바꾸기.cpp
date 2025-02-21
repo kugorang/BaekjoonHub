@@ -4,9 +4,6 @@
 using namespace std;
 
 string solution(string my_string, int num1, int num2) {
-    char tmp = my_string[num1];
-    my_string[num1] = my_string[num2];
-    my_string[num2] = tmp;
-    
+    swap(my_string[num1], my_string[num2]);
     return my_string;
 }
