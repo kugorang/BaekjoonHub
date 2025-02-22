@@ -9,7 +9,9 @@ vector<int> solution(int n) {
     
     answer.push_back(1);
     
-    for (int i = 2; i < n; ++i)
+    int loopEnd = n / 2;
+    
+    for (int i = 2; i <= loopEnd; ++i)
         if (n % i == 0)
             answer.push_back(i);
     
