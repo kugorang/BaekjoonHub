@@ -6,12 +6,8 @@ using namespace std;
 
 vector<int> solution(vector<int> num_list) {
     sort(num_list.begin(), num_list.end());
-
-    vector<int> answer;
-    answer.reserve(5);
     
-    for (int i = 0; i < 5; ++i)
-        answer.push_back(num_list[i]);
+    auto num_list_begin = num_list.begin();
     
-    return answer;
+    return vector<int>(num_list_begin, num_list_begin + 5);
 }
