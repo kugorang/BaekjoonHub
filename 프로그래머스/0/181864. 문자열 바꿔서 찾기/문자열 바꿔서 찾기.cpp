@@ -12,8 +12,5 @@ int solution(string myString, string pat) {
             ch = 'A';
     }
     
-    if (myString.find(pat) == string::npos)
-        return 0;
-
-    return 1;
+    return myString.find(pat) != string::npos;
 }
