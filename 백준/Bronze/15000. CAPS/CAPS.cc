@@ -8,8 +8,9 @@ int main()
     string str;
     cin >> str;
     
-    transform(str.begin(), str.end(), str.begin(), ::toupper);
-        
+    for (auto &ch : str)
+        ch = toupper(ch);
+    
     cout << str;
     
     return 0;
