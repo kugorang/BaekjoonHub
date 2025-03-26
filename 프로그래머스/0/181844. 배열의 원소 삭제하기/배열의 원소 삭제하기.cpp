@@ -9,18 +9,18 @@ vector<int> solution(vector<int> arr, vector<int> delete_list) {
     
     for (auto &num : arr)
     {
-        bool isAlreadyExist = true;
+        bool hasElement = false;
 
         for (auto &delete_num : delete_list)
         {
             if (delete_num == num)
             {
-                isAlreadyExist = false;
+                hasElement = true;
                 break;
             }
         }
         
-        if (isAlreadyExist)
+        if (!hasElement)
             answer.push_back(num);
     }
 
