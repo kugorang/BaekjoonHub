@@ -4,11 +4,5 @@
 using namespace std;
 
 string solution(string my_string, int n) {
-    string answer;
-    answer.reserve(n);
-    
-    for (int i = 0; i < n; ++i)
-        answer.push_back(my_string[i]);
-
-    return answer;
+    return my_string.substr(0, n);
 }
