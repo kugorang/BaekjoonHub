@@ -5,17 +5,12 @@
 using namespace std;
 
 string solution(string my_string, vector<int> index_list) {
-    char tmp[1000] = { 0, };
-    int loopEnd = index_list.size();
     string answer;
-    answer.reserve(loopEnd);
+    int index_list_size = index_list.size();
+    answer.reserve(index_list_size);
     
-    for (int i = 0; i < loopEnd; ++i)
-        tmp[i] = my_string[index_list[i]];
-    
-    for (int i = 0; i < loopEnd; ++i)
-        if (tmp[i] != 0)
-            answer.push_back(tmp[i]);
+    for (int i = 0; i < index_list_size; ++i)
+        answer.push_back(my_string[index_list[i]]);
     
     return answer;
 }
