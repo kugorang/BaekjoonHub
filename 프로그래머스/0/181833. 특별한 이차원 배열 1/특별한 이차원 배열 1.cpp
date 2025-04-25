@@ -4,20 +4,10 @@
 using namespace std;
 
 vector<vector<int>> solution(int n) {
-    vector<vector<int>> answer(n);
+    vector<vector<int>> answer(n, vector<int>(n, 0));
     
-    for (int row = 0; row < n; ++row)
-    {
-        answer[row].reserve(n);
-        
-        for (int col = 0; col < n; ++col)
-        {    
-            if (row == col)
-                answer[row].push_back(1);
-            else
-                answer[row].push_back(0);
-        }
-    }
+    for (int i = 0; i < n; ++i)
+        answer[i][i] = 1;
 
     return answer;
 }
