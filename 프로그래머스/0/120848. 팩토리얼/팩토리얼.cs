@@ -6,7 +6,7 @@ public class Solution {
         int result = 1;
         int i = 2;
         
-        while (i <= n)
+        while (result < n)
         {
             if (result * i > n)
                 break;
