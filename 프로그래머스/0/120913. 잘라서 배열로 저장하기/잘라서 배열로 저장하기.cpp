@@ -5,22 +5,10 @@ using namespace std;
 
 vector<string> solution(string my_str, int n) {
     vector<string> answer;
-    int count = 0;
-    string temp = "";
+    int myStrLen = my_str.length();
     
-    for (char ch : my_str)
-    {
-        temp += ch;
-        
-        if (++count % n == 0)
-        {
-            answer.push_back(temp);
-            temp = "";
-        }
-    }
-    
-    if (temp != "")
-        answer.push_back(temp);
+    for (int i = 0; i < myStrLen; i += n)
+        answer.push_back(my_str.substr(i, n));
     
     return answer;
 }
